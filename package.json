@@ -1,6 +1,6 @@
 {
   "name": "ng2-inline-href",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Angular 2 Directive that fixes links to inline SVGs in Firefox",
   "keywords": [
     "angular",
@@ -15,5 +15,10 @@
   "bugs": "https://github.com/Tsmith18256/ng2-inline-href/issues",
   "license": "Unlicense",
   "author": "Tyler Smith",
-  "repository": "Tsmith18256/ng2-inline-href"
+  "repository": "Tsmith18256/ng2-inline-href",
+  "main": "inline-href.js",
+  "peerDependencies": {
+    "@angular/core": "2.x.x"
+  },
+  "types": "inline-href.d.ts"
 }
