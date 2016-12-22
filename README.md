@@ -35,6 +35,36 @@ The resulting tag will look something like this:
 </svg>
 ```
 
+## Setup
+
+Perform the following steps to add this directive to your project:
+
+1. `npm install --save ng2-inline-href`
+2. Import the directive into your shared module
+
+```typescript
+import { NgModule } from '@angular/core';
+import { InlineHrefDirective } from 'ng2-inline-href';
+
+@NgModule({
+  declarations: [ InlineHrefDirective ],
+  exports: [ InlineHrefDirective ]
+})
+export class SharedModule {};
+```
+
+3. Add the library to your SystemJS config
+
+```javascript
+System.config({
+  map: {
+    'ng2-inline-href': 'npm:ng2-inline-href/inline-href.js'
+  }
+});
+```
+
+4. Import the shared module into your other modules to use the directive in your templates
+
 ## The Xlink Namespace
 
 The `xlink` namespace on the SVG tag
