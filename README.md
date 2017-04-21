@@ -1,4 +1,4 @@
-# Angular 2 Inline Href
+# Angular Inline Href
 
 This directive provides a fix for hrefs in Firefox. Notably, when trying to reference an inline SVG, as so:
 
