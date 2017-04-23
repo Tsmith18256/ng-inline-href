@@ -39,12 +39,12 @@ The resulting tag will look something like this:
 
 Perform the following steps to add this directive to your project:
 
-1. `npm install --save ng2-inline-href`
+1. `npm install --save ng-inline-href`
 2. Import the directive into your shared module
 
 ```typescript
 import { NgModule } from '@angular/core';
-import { InlineHrefDirective } from 'ng2-inline-href';
+import { InlineHrefDirective } from 'ng-inline-href';
 
 @NgModule({
   declarations: [ InlineHrefDirective ],
@@ -58,7 +58,7 @@ export class SharedModule {};
 ```javascript
 System.config({
   map: {
-    'ng2-inline-href': 'npm:ng2-inline-href/inline-href.js'
+    'ng-inline-href': 'npm:ng-inline-href/inline-href.js'
   }
 });
 ```
