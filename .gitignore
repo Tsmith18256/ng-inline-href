@@ -1,6 +1,10 @@
 node_modules
 *.js
 *.js.map
-*.d.ts
+
+# IDEs
+
+.idea/tasks.xml
+.idea/workspace.xml
 
 .vscode/
