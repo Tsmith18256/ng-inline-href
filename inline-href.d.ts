@@ -1,4 +1,4 @@
-import { Directive, ElementRef, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 /**
  * Provides a fix for broken href attributes in Firefox when referring to an ID. This is an especially common issue when
  * using the SVG <use> tag with an inline SVG file. Any href that refers to a local ID, such as href="#icon-close", will
@@ -17,7 +17,7 @@ import { Directive, ElementRef, OnInit } from '@angular/core';
 @Directive({ selector: '[inlineHref]' })
 export declare class InlineHrefDirective implements OnInit {
     private element;
-    inlineHref: string;
+    @Input() inlineHref: string;
     private static readonly HREF_ATTR;
     private static readonly SVG_USE_TAG;
     private static readonly XLINK_NS;
