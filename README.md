@@ -40,7 +40,7 @@ The resulting tag will look something like this:
 Perform the following steps to add this directive to your project:
 
 1. `npm install --save ng-inline-href`
-2. Import the directive into your shared module
+2. Import the directive into your shared module and add it to the `declarations` and `exports` arrays
 
 ```typescript
 import { NgModule } from '@angular/core';
@@ -50,20 +50,10 @@ import { InlineHrefDirective } from 'ng-inline-href';
   declarations: [ InlineHrefDirective ],
   exports: [ InlineHrefDirective ]
 })
-export class SharedModule {};
+export class SharedModule {}
 ```
 
-3. Add the library to your SystemJS config
-
-```javascript
-System.config({
-  map: {
-    'ng-inline-href': 'npm:ng-inline-href/inline-href.js'
-  }
-});
-```
-
-4. Import the shared module into your other modules to use the directive in your templates
+3. Import the shared module into your other modules to use the directive in your templates
 
 ## The Xlink Namespace
 
