@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 /**
  * Provides a fix for broken href attributes in Firefox when referring to an ID. This is an especially common issue when
@@ -21,7 +22,7 @@ export declare class InlineHrefDirective implements OnInit {
     private static readonly HREF_ATTR;
     private static readonly SVG_USE_TAG;
     private static readonly XLINK_NS;
-    constructor(element: ElementRef);
+    constructor(element: ElementRef, location: Location);
     /**
      * Takes the relative href that has been provided and converts it to an absolute URL. The URL is applied to either the
      * href or xlink:href attribute, depending on the tag type.

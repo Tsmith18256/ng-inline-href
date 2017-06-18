@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 
 /**
@@ -23,14 +24,15 @@ export class InlineHrefDirective implements OnInit {
   private static readonly SVG_USE_TAG: string = 'use';
   private static readonly XLINK_NS: string = 'http://www.w3.org/1999/xlink';
 
-  constructor(private element: ElementRef) {}
+  constructor(private element: ElementRef, private location: Location) {}
 
   /**
    * Takes the relative href that has been provided and converts it to an absolute URL. The URL is applied to either the
    * href or xlink:href attribute, depending on the tag type.
    */
   ngOnInit(): void {
-    let fixedHref = window.location.href.replace(window.location.hash, '') + this.inlineHref;
+    const includeHash = false;
+    const fixedHref = this.location.path(includeHash) + this.inlineHref;
 
     if (this.element.nativeElement.tagName === InlineHrefDirective.SVG_USE_TAG) {
       this.element.nativeElement.setAttributeNS(InlineHrefDirective.XLINK_NS, InlineHrefDirective.HREF_ATTR, fixedHref);
@@ -38,4 +40,4 @@ export class InlineHrefDirective implements OnInit {
       this.element.nativeElement.href = fixedHref;
     }
   }
-};
+}
