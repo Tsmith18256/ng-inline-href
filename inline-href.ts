@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Directive, ElementRef, Input, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 
 /**
  * Provides a fix for broken href attributes in Firefox when referring to an ID. This is an especially common issue when
@@ -22,9 +22,9 @@ export class InlineHrefDirective implements OnInit {
 
   private static readonly HREF_ATTR: string = 'href';
   private static readonly SVG_USE_TAG: string = 'use';
-  private static readonly XLINK_NS: string = 'http://www.w3.org/1999/xlink';
+  private static readonly XLINK_NS: string = 'xlink';
 
-  constructor(private element: ElementRef, private location: Location) {}
+  constructor(private element: ElementRef, private location: Location, private renderer: Renderer2) {}
 
   /**
    * Takes the relative href that has been provided and converts it to an absolute URL. The URL is applied to either the
@@ -34,10 +34,9 @@ export class InlineHrefDirective implements OnInit {
     const includeHash = false;
     const fixedHref = this.location.path(includeHash) + this.inlineHref;
 
-    if (this.element.nativeElement.tagName === InlineHrefDirective.SVG_USE_TAG) {
-      this.element.nativeElement.setAttributeNS(InlineHrefDirective.XLINK_NS, InlineHrefDirective.HREF_ATTR, fixedHref);
-    } else {
-      this.element.nativeElement.href = fixedHref;
-    }
+    const isSvgUseTag = this.element.nativeElement.tagName === InlineHrefDirective.SVG_USE_TAG;
+    const namespace = isSvgUseTag ? InlineHrefDirective.XLINK_NS : undefined;
+
+    this.renderer.setAttribute(this.element.nativeElement, InlineHrefDirective.HREF_ATTR, fixedHref, namespace);
   }
 }
