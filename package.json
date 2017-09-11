@@ -16,9 +16,21 @@
   "author": "Tyler Smith",
   "repository": "Tsmith18256/ng-inline-href",
   "main": "inline-href.js",
+  "scripts": {
+    "build": "ngc -p ./tsconfig.json"
+  },
   "peerDependencies": {
-    "@angular/common": "4.x.x",
-    "@angular/core": "4.x.x"
+    "@angular/common": ">= 4.0.0",
+    "@angular/core": ">= 4.0.0"
+  },
+  "devDependencies": {
+    "@angular/common": "^4.3.6",
+    "@angular/compiler": "^4.3.6",
+    "@angular/compiler-cli": "^4.3.6",
+    "@angular/core": "^4.3.6",
+    "rxjs": "^5.4.3",
+    "typescript": "^2.5.2",
+    "zone.js": "^0.8.17"
   },
   "types": "./inline-href.d.ts"
 }

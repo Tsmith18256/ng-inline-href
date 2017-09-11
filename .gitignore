@@ -1,6 +1,11 @@
 node_modules
+
+# Built files
+
 *.js
 *.js.map
+*.d.ts
+inline-href.metadata.json
 
 # IDEs
 
